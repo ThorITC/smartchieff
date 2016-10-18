@@ -1,0 +1,14 @@
+ion-view(ng-init="vm.init()" view-title="{{vm.dish.recipe.dish_type.type_name}}")
+  ion-content.padding
+    .item.item-text-wrap
+      span(ng-bind="vm.dish.recipe.name")
+    .item.item-image
+      img(ng-src="{{vm.dish.recipe.logo_cdn_url}}")
+    p(ng-repeat="ingredient in vm.dish.ingredients")
+      span(ng-bind="ingredient.ingredient.name")
+      span(ng-bind="ingredient.volume")
+    p(ng-repeat="item in vm.dish.recipe.recipe")
+      span(ng-bind="$index+1")
+      span . 
+      span(ng-bind="item.text")
+      img(ng-src="{{item.img}}")

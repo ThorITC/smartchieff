@@ -1,0 +1,19 @@
+ion-view(ng-init="vm.init()" view-title="{{vm.dish.recipe.dish_type.type_name}}")
+  ion-content.custom-padding
+    .card
+      .item.item-text-wrap 
+        span(data-ng-bind="vm.dish.recipe.name")
+    .card
+      .item.item-image
+        img(ng-src="{{vm.dish.recipe.logo_cdn_url}}")
+    .card(ng-if="vm.dish.ingredients.length > 0")
+      .item.custom-card-padding
+        .card
+          .item.item-avatar(ng-repeat="ingredient in vm.dish.ingredients")
+            img(data-ng-src="{{ingredient.ingredient.logo_cdn_url}}", ng-if="ingredient.ingredient.logo_cdn_url")
+            h2(data-ng-bind="ingredient.ingredient.name")
+            p(data-ng-bind="ingredient.volume")
+    .card(ng-if="vm.dish.recipe !== null")
+      .item
+        .card
+          

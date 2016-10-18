@@ -1,0 +1,9 @@
+-
+  tabs = [{iconOff: 'ion-ios-shuffle', iconOn: 'ion-ios-shuffle-strong', href: '#/tab/random', name: 'tab-random'}, 
+          {iconOff: 'ion-android-search', iconOn: 'ion-android-search', href: '#/tab/search', name: 'tab-search'}, 
+          {iconOff: 'ion-arrow-shrink', iconOn: 'ion-arrow-shrink', href: '#/tab/construct', name: 'tab-construct'}]
+
+ion-tabs.tabs-icon-top.tabs-color-active-positive
+  - each tab in tabs
+      ion-tab(icon-off=tab.iconOff icon-on=tab.iconOn href=tab.href)
+        ion-nav-view(name=tab.name)

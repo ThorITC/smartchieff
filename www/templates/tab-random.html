@@ -1,0 +1,17 @@
+
+<ion-view view-title="Random Recipe">
+  <ion-content ng-init="vm.getRandomDish()" class="padding">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.getRandomDish()"></ion-refresher>
+    <div class="list card">
+      <div class="item">
+        <h2><a ng-href="#/recipe/{{vm.randomDish.dish.id}}"><span ng-bind="vm.randomDish.dish.name"></span></a></h2>
+        <p><span ng-bind="vm.randomDish.dish.dish_type.type_name"></span></p>
+      </div>
+      <div class="item item-image"><img src="{{vm.randomDish.dish.logo_cdn_url}}"/></div>
+      <div class="item row">
+        <div class="col-20"><i ng-click="vm.rate(1)" class="icon ion-heart"><span ng-bind="vm.randomDish.dish.rating.likes"></span></i></div>
+        <div class="col-25"><i ng-click="vm.rate(-1)" class="icon ion-heart-broken"><span ng-bind="vm.randomDish.dish.rating.dislikes"></span></i></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

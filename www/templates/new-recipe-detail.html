@@ -1,0 +1,26 @@
+
+<ion-view ng-init="vm.init()" view-title="{{vm.dish.recipe.dish_type.type_name}}">
+  <ion-content class="custom-padding">
+    <div class="card">
+      <div class="item item-text-wrap"> <span data-ng-bind="vm.dish.recipe.name"></span></div>
+    </div>
+    <div class="card">
+      <div class="item item-image"><img ng-src="{{vm.dish.recipe.logo_cdn_url}}"/></div>
+    </div>
+    <div ng-if="vm.dish.ingredients.length &gt; 0" class="card">
+      <div class="item custom-card-padding">
+        <div class="card">
+          <div ng-repeat="ingredient in vm.dish.ingredients" class="item item-avatar"><img data-ng-src="{{ingredient.ingredient.logo_cdn_url}}" ng-if="ingredient.ingredient.logo_cdn_url"/>
+            <h2 data-ng-bind="ingredient.ingredient.name"></h2>
+            <p data-ng-bind="ingredient.volume"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="vm.dish.recipe !== null" class="card">
+      <div class="item">
+        <div class="card"></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

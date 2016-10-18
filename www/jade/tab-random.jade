@@ -1,0 +1,20 @@
+ion-view(view-title="Random Recipe")
+  ion-content.padding(ng-init="vm.getRandomDish()")
+    ion-refresher(pulling-text="Pull to refresh..." on-refresh="vm.getRandomDish()")
+    .list.card
+      .item
+        h2
+          a(ng-href="#/recipe/{{vm.randomDish.dish.id}}")
+            span(ng-bind="vm.randomDish.dish.name")
+        p
+          span(ng-bind="vm.randomDish.dish.dish_type.type_name")
+
+      .item.item-image
+        img(src="{{vm.randomDish.dish.logo_cdn_url}}")
+      .item.row
+        .col-20
+          i.icon.ion-heart(ng-click="vm.rate(1)")
+            span(ng-bind="vm.randomDish.dish.rating.likes")
+        .col-25
+          i.icon.ion-heart-broken(ng-click="vm.rate(-1)")
+            span(ng-bind="vm.randomDish.dish.rating.dislikes")

@@ -1,0 +1,13 @@
+ion-view(view-title="Search recipe" hide-nav-bar="true")
+  ion-header-bar.bar-stable.bar.bar-header.item-input-inset(align-title="left")
+    label.item-input-wrapper
+      i.icon.ion-ios-search.placeholder-icon
+      input(type="search" placeholder="Search" ng-model="vm.searchKey")
+    button.button.button-clear(ng-click='vm.search()') Search
+
+  ion-content
+    ion-list
+      ion-item.item-remove-animate.item-avatar.item-icon-right(ng-repeat="recipe in vm.recipeList" type="item-text-wrap" href="#/recipe/{{recipe.id}}")
+        img(ng-src="{{recipe.logo_cdn_url}}")
+        h2 {{recipe.name}}
+        i.icon.ion-chevron-right.icon-accessory
